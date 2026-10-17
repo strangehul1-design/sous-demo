@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кафе «Соус» — доставка еды, Ишимбай</title>
+<meta name="description" content="Кафе «Соус», Ишимбай. Шаурма, бургеры и горячее с доставкой. Заказ без звонка, Молодёжная 4.">
+<meta name="theme-color" content="#050505">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050505;--card:#111111;--card2:#1A1A1A;--accent:#FF4500;--fg:#FFFFFF;
+  --muted:#9A9A9A;--line:rgba(255,255,255,.1);
+  --serif:"Playfair Display",Georgia,serif;--sans:Inter,system-ui,sans-serif;
+  --t:.5s cubic-bezier(0.22,1,0.36,1);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+::selection{background:var(--accent);color:#fff}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.02em}
+em{font-style:italic}p{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding-left:24px;padding-right:24px}
+.lab{font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.noise{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:overlay}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(0.22,1,0.36,1),transform .8s cubic-bezier(0.22,1,0.36,1)}
+.reveal.on{opacity:1;transform:none}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:20px 0;transition:padding var(--t),background var(--t)}
+.nav.small{padding:12px 0;background:rgba(5,5,5,.84);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.05)}
+.nav__in{display:flex;align-items:center;gap:18px}
+.logo{font-family:var(--serif);font-size:22px}
+.logo i{font-style:normal;color:var(--accent)}
+.nav__l{display:flex;gap:26px;margin:0 auto}
+.nav__l a{font-size:14px;color:var(--muted);transition:color var(--t)}
+.pill{padding:11px 20px;border-radius:999px;background:var(--fg);color:#000;font-size:14px;font-weight:500;border:none;transition:transform var(--t)}
+
+.hero{min-height:84vh;display:flex;align-items:center;position:relative;padding:140px 0 70px;overflow:hidden}
+.glow{position:absolute;width:620px;height:620px;border-radius:50%;filter:blur(30px);pointer-events:none}
+.glow.a{top:-190px;right:-150px;background:radial-gradient(circle,rgba(255,69,0,.28),transparent 68%)}
+.glow.b{bottom:-250px;left:-190px;background:radial-gradient(circle,rgba(255,69,0,.13),transparent 70%)}
+.hero__in{position:relative;z-index:2;max-width:860px}
+.hero h1{font-size:clamp(40px,6.4vw,82px);letter-spacing:-.03em}
+.hero h1 em{color:var(--accent)}
+.hero p{margin-top:24px;max-width:50ch;font-size:19px;color:var(--muted);font-weight:300}
+.btns{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--fg);font-size:15px;font-weight:500;backdrop-filter:blur(6px);transition:background var(--t),filter var(--t)}
+.btn.main{background:var(--accent);border-color:var(--accent);color:#fff}
+.meta{display:flex;gap:16px;align-items:center;margin-top:42px;font:400 12px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.meta i{width:1px;height:12px;background:rgba(255,255,255,.2);display:block}
+
+section{padding:80px 0}
+.head h2{font-size:clamp(30px,4.4vw,54px)}
+.head h2 em{color:var(--accent)}
+.head p{margin-top:16px;max-width:58ch;color:var(--muted);font-weight:300;font-size:18px}
+
+.tabs{position:sticky;top:60px;z-index:40;background:rgba(5,5,5,.9);backdrop-filter:blur(10px);padding:14px 0;border-bottom:1px solid var(--line)}
+.tabs__in{display:flex;gap:9px;overflow-x:auto;scrollbar-width:none}
+.tabs__in::-webkit-scrollbar{display:none}
+.tab{flex:none;padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--muted);font-size:14px;font-weight:500;transition:background var(--t),color var(--t),border-color var(--t)}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.list{margin-top:28px;border-top:1px solid var(--line)}
+.it{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.it .m{flex:1;min-width:0}
+.it h4{margin:0;font-size:19px;font-weight:500}
+.it .g{font-size:13px;color:var(--muted);margin-top:3px;font-weight:300}
+.it .pr{font-family:var(--serif);font-size:22px;color:var(--accent);white-space:nowrap}
+.plus{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--fg);font-size:20px;line-height:1;flex:none;transition:background var(--t),border-color var(--t)}
+.qty{display:flex;align-items:center;gap:10px}
+.qty b{min-width:20px;text-align:center;font-weight:600}
+.qty .plus{width:36px;height:36px;font-size:17px}
+.it.on h4{color:var(--accent)}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto}
+.duo .c{border-radius:28px;padding:38px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between}
+.duo .c.red{background:var(--accent);color:#000}
+.duo .c.dark{background:var(--card);border:1px solid var(--line)}
+.duo h3{font-size:clamp(26px,3.2vw,38px);line-height:1}
+.duo .c.red p{margin-top:14px;color:rgba(0,0,0,.72);font-weight:400}
+.duo .c.dark p{margin-top:14px;color:var(--muted);font-weight:300}
+.duo .n{border-radius:999px;padding:4px 12px;font-size:13px;align-self:flex-start}
+.duo .c.red .n{border:1px solid rgba(0,0,0,.2);color:rgba(0,0,0,.6)}
+.duo .c.dark .n{border:1px solid var(--line);color:rgba(255,255,255,.5)}
+
+.note{border:1px dashed rgba(255,69,0,.42);border-radius:24px;padding:20px 24px;margin-top:28px;font-size:15px;line-height:1.65;color:var(--muted);font-weight:300}
+.note b{color:var(--accent);font-weight:500}
+
+.bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:55;max-width:1156px;margin:0 auto;background:rgba(17,17,17,.94);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:12px 14px 12px 24px;display:flex;align-items:center;gap:18px;transform:translateY(130%);transition:transform var(--t)}
+.bar.show{transform:none}
+.bar .n{font-size:14px;color:var(--muted)}
+.bar .s{font-family:var(--serif);font-size:24px;margin-left:auto}
+
+dialog{border:none;border-radius:28px;padding:0;background:var(--card);color:var(--fg);width:min(470px,calc(100vw - 28px))}
+dialog::backdrop{background:rgba(0,0,0,.72)}
+dialog[open]{animation:in .4s cubic-bezier(0.22,1,0.36,1)}
+@keyframes in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.sheet{padding:30px}
+.sheet h3{font-size:26px}
+.ord{margin-top:20px;border-top:1px solid var(--line)}
+.ord div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px}
+.ord span{color:var(--muted);font-weight:300;min-width:0}
+label{display:block;margin-top:16px}
+label span{display:block;font:500 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+input,select{width:100%;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:13px 18px;color:var(--fg);font:400 16px var(--sans);transition:border-color var(--t)}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+.sheet .btn{width:100%;margin-top:20px}
+
+footer{padding:66px 0 42px;border-top:1px solid rgba(255,255,255,.05)}
+.fbig{font-family:var(--sans);font-weight:600;font-size:13vw;line-height:.8;color:rgba(255,255,255,.055);letter-spacing:-.04em;user-select:none}
+.fgrid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-top:40px;color:var(--muted);font-size:15px;font-weight:300}
+.fgrid a{color:var(--fg)}
+.sign{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.35);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.sign a{color:var(--accent)}
+
+@media (hover:hover) and (pointer:fine){
+  .nav__l a:hover{color:var(--fg)}.pill:hover{transform:scale(1.04)}
+  .btn:hover{background:rgba(255,255,255,.12)}.btn.main:hover{filter:brightness(1.08);background:var(--accent)}
+  .plus:hover{background:var(--accent);border-color:var(--accent)}
+}
+@media (max-width:900px){.nav__l{display:none}.duo{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .wrap{padding-left:16px;padding-right:16px}body{font-size:16px}
+  section{padding:54px 0}.duo .c{padding:28px}
+  .bar{padding:10px 10px 10px 18px;gap:12px}.bar .n{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms!important}dialog[open]{animation:none}
+}
+</style>
+</head>
+<body>
+
+<svg class="noise"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
+<nav class="nav" id="nav"><div class="wrap nav__in">
+  <a class="logo" href="#top">СО<i>УС</i></a>
+  <div class="nav__l">
+    <a href="#menu">Меню</a>
+    <a href="#why">Доставка</a>
+  </div>
+  <button class="pill" onclick="document.querySelector('#menu').scrollIntoView()">Заказать</button>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow a"></div><div class="glow b"></div>
+  <div class="wrap hero__in">
+    <div class="reveal"><h1>Доставка, которую <em>не надо звонить</em></h1></div>
+    <div class="reveal" style="transition-delay:120ms">
+      <p>Собрали заказ, нажали кнопку, получили еду. Без дозвона, без диктовки состава по телефону и без вопроса «а сколько это стоит».</p>
+    </div>
+    <div class="reveal btns" style="transition-delay:240ms">
+      <button class="btn main" onclick="document.querySelector('#menu').scrollIntoView()">Собрать заказ</button>
+      <a class="btn" href="tel:+79033550384">+7 903 355-03-84</a>
+    </div>
+    <div class="reveal meta" style="transition-delay:340ms">
+      <span>Ишимбай</span><i></i><span>Молодёжная 4</span><i></i><span>7 852 подписчика</span>
+    </div>
+  </div>
+</header>
+
+<div class="tabs" id="tabsBar"><div class="wrap tabs__in" id="tabs"></div></div>
+
+<section class="wrap" id="menu" style="padding-top:44px">
+  <div class="head reveal">
+    <h2 id="catTtl"></h2>
+    <p id="catSub"></p>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="note">
+    <b>Цены здесь условные.</b> У вас 7 852 подписчика и доставка, но в сообществе всего шесть фотографий и ни одной цены. Человек, который хочет заказать прямо сейчас, не может узнать ни состав, ни стоимость - только позвонить. Пришлёте прайс, подставлю настоящие цифры.
+  </div>
+</section>
+
+<section class="wrap" id="why">
+  <div class="head reveal" style="text-align:center;margin:0 auto 46px">
+    <h2>Что меняется <br><em>с корзиной</em></h2>
+  </div>
+  <div class="duo">
+    <div class="c red reveal">
+      <span class="n">01</span>
+      <div>
+        <h3>Сейчас<br>только звонок</h3>
+        <p>Вечер, час пик, линия занята. Человек не дозвонился - заказал у того, у кого получилось с первого раза.</p>
+      </div>
+    </div>
+    <div class="c dark reveal" style="transition-delay:140ms">
+      <span class="n">02</span>
+      <div>
+        <h3>Станет<br>заказ в один экран</h3>
+        <p>Выбрал, увидел сумму, оставил адрес. Заказ приходит вам готовым списком, без ошибок в составе и без переспрашиваний.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="fbig">СОУС</div>
+  <div class="fgrid">
+    <div>Кафе и доставка еды<br>Ишимбай, ул. Молодёжная, 4</div>
+    <div><a href="tel:+79033550384">+7 903 355-03-84</a><br><a href="https://vk.ru/shaurhouse">Сообщество ВКонтакте</a></div>
+    <div>Быстро. Качественно.<br>С любовью.</div>
+  </div>
+  <div class="sign">
+    <span>Черновой пример страницы. Собрал Арсений Асянов, «Digital для бизнеса»</span>
+    <a href="https://strangehul1-design.github.io/web-chef-portfolio/ru/">портфолио</a>
+  </div>
+</div></footer>
+
+<div class="bar" id="bar">
+  <span class="n" id="barN">0 позиций</span>
+  <span class="s" id="barS">0 ₽</span>
+  <button class="btn main" id="checkout">Оформить</button>
+</div>
+
+<dialog id="dlg">
+  <div class="sheet" id="s1">
+    <h3>Ваш заказ</h3>
+    <div class="ord" id="ord"></div>
+    <label><span>Куда</span><select id="fw"><option>Доставка</option><option>Самовывоз</option></select></label>
+    <label><span>Адрес</span><input id="fa" type="text" placeholder="улица, дом, квартира"></label>
+    <label><span>Телефон</span><input id="fp" type="tel" placeholder="+7"></label>
+    <button class="btn main" id="send">Отправить заказ</button>
+  </div>
+  <div class="sheet" id="s2" hidden>
+    <span class="lab" style="color:var(--accent)">Заказ принят</span>
+    <h3 style="margin-top:10px">Готовим</h3>
+    <div class="ord" id="okR"></div>
+    <button class="btn" style="width:100%;margin-top:18px" onclick="document.querySelector('#dlg').close()">Закрыть</button>
+  </div>
+</dialog>
+
+<script>
+/* FORM_CONFIG - в рабочей версии заказ уходит в Telegram. В демо форма ничего не отправляет. */
+const FORM_CONFIG = { mode:"demo", telegram_token:"", chat_id:"" };
+
+/* ЧЕРНОВИК: позиции - структура под шаурму и доставку. Прайс у кафе не опубликован. */
+const CATS = [
+  { t:"Шаурма", sub:"Основное, ради чего заказывают. Состав и вес подставим ваши.", items:[
+    { n:"Шаурма классическая", g:"— г", p:null },
+    { n:"Шаурма с курицей", g:"— г", p:null },
+    { n:"Шаурма с говядиной", g:"— г", p:null },
+    { n:"Шаурма сырная", g:"— г", p:null },
+    { n:"Шаурма острая", g:"— г", p:null }
+  ]},
+  { t:"Бургеры и хот-доги", sub:"Второй по частоте заказ в доставке.", items:[
+    { n:"Бургер классический", g:"— г", p:null },
+    { n:"Бургер с двойной котлетой", g:"— г", p:null },
+    { n:"Чикенбургер", g:"— г", p:null },
+    { n:"Хот-дог", g:"— г", p:null }
+  ]},
+  { t:"Горячее и гарниры", sub:"Добавки, которые повышают чек.", items:[
+    { n:"Картофель фри", g:"— г", p:null },
+    { n:"Картофель по-деревенски", g:"— г", p:null },
+    { n:"Наггетсы", g:"— шт", p:null },
+    { n:"Луковые кольца", g:"— г", p:null },
+    { n:"Соусы", g:"— мл", p:null }
+  ]},
+  { t:"Напитки", sub:"", items:[
+    { n:"Кола", g:"0,5 л", p:null },
+    { n:"Лимонад", g:"0,5 л", p:null },
+    { n:"Чай холодный", g:"0,5 л", p:null },
+    { n:"Вода", g:"0,5 л", p:null }
+  ]}
+];
+
+const $ = s => document.querySelector(s);
+const cart = new Map();
+let active = 0;
+
+function plural(n,f){ const m=n%100; if(m>10&&m<20) return f[2]; const k=n%10; return k===1?f[0]:(k>1&&k<5?f[1]:f[2]); }
+
+$("#tabs").innerHTML = CATS.map((c,i) => `<button class="tab" data-i="${i}" aria-selected="${i===active}">${c.t}</button>`).join("");
+
+function render(){
+  const c = CATS[active];
+  $("#catTtl").textContent = c.t;
+  $("#catSub").textContent = c.sub;
+  $("#list").innerHTML = c.items.map((it,i) => {
+    const k = active + "_" + i, q = cart.get(k)?.q || 0;
+    return `<div class="it ${q?'on':''}">
+      <div class="m"><h4>${it.n}</h4><div class="g">${it.g}</div></div>
+      <span class="pr">— ₽</span>
+      ${q ? `<span class="qty"><button class="plus" data-k="${k}" data-d="-1">−</button><b>${q}</b><button class="plus" data-k="${k}" data-d="1">+</button></span>`
+          : `<button class="plus" data-k="${k}" data-d="1" aria-label="Добавить">+</button>`}
+    </div>`;
+  }).join("");
+  observe();
+}
+
+function totals(){
+  let n = 0;
+  cart.forEach(v => n += v.q);
+  $("#barN").textContent = n + " " + plural(n, ["позиция","позиции","позиций"]);
+  $("#barS").textContent = "— ₽";
+  $("#bar").classList.toggle("show", n > 0);
+  return n;
+}
+
+$("#tabs").addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if(!b) return;
+  active = +b.dataset.i;
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", +t.dataset.i === active));
+  render();
+});
+
+$("#list").addEventListener("click", e => {
+  const b = e.target.closest(".plus"); if(!b) return;
+  const k = b.dataset.k, [ci,ii] = k.split("_").map(Number);
+  const it = CATS[ci].items[ii];
+  const next = (cart.get(k)?.q || 0) + Number(b.dataset.d);
+  if(next <= 0) cart.delete(k); else cart.set(k, { q:next, it });
+  render(); totals();
+});
+
+$("#checkout").addEventListener("click", () => {
+  $("#s1").hidden = false; $("#s2").hidden = true;
+  $("#ord").innerHTML = [...cart.values()].map(v => `<div><span>${v.it.n} × ${v.q}</span><b>— ₽</b></div>`).join("")
+    + `<div><span>Итого</span><b>посчитаем по прайсу</b></div>`;
+  $("#dlg").showModal();
+});
+
+$("#send").addEventListener("click", () => {
+  const n = totals();
+  $("#okR").innerHTML = `
+    <div><span>Куда</span><b>${$("#fw").value}</b></div>
+    <div><span>Адрес</span><b>${$("#fa").value.trim() || "не указан"}</b></div>
+    <div><span>Позиций</span><b>${n}</b></div>
+    <div><span>Телефон</span><b>${$("#fp").value.trim() || "не указан"}</b></div>
+    <div><span>Статус</span><b>демо, не отправлено</b></div>`;
+  $("#s1").hidden = true; $("#s2").hidden = false;
+});
+
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } }), { threshold:.1, rootMargin:"0px 0px -40px 0px" });
+function observe(){ document.querySelectorAll(".reveal:not(.on)").forEach(el => io.observe(el)); }
+
+let ticking = false;
+addEventListener("scroll", () => {
+  if(ticking) return; ticking = true;
+  requestAnimationFrame(() => { $("#nav").classList.toggle("small", scrollY > 40); ticking = false; });
+}, { passive:true });
+
+render(); totals(); observe();
+</script>
+</body>
+</html>
